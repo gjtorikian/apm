@@ -15,13 +15,13 @@ describe 'apm rebuild', ->
     silenceOutput()
 
     app = express()
-    app.get '/node/v0.10.3/node-v0.10.3.tar.gz', (request, response) ->
-      response.sendfile path.join(__dirname, 'fixtures', 'node-v0.10.3.tar.gz')
-    app.get '/node/v0.10.3/node.lib', (request, response) ->
+    app.get '/node/v0.12.0/node-v0.12.0.tar.gz', (request, response) ->
+      response.sendfile path.join(__dirname, 'fixtures', 'node-v0.12.0.tar.gz')
+    app.get '/node/v0.12.0/node.lib', (request, response) ->
       response.sendfile path.join(__dirname, 'fixtures', 'node.lib')
-    app.get '/node/v0.10.3/x64/node.lib', (request, response) ->
+    app.get '/node/v0.12.0/x64/node.lib', (request, response) ->
       response.sendfile path.join(__dirname, 'fixtures', 'node_x64.lib')
-    app.get '/node/v0.10.3/SHASUMS256.txt', (request, response) ->
+    app.get '/node/v0.12.0/SHASUMS256.txt', (request, response) ->
       response.sendfile path.join(__dirname, 'fixtures', 'SHASUMS256.txt')
 
     server =  http.createServer(app)
@@ -31,7 +31,7 @@ describe 'apm rebuild', ->
     process.env.ATOM_HOME = atomHome
     process.env.ATOM_NODE_URL = "http://localhost:3000/node"
     process.env.ATOM_PACKAGES_URL = "http://localhost:3000/packages"
-    process.env.ATOM_NODE_VERSION = 'v0.10.3'
+    process.env.ATOM_NODE_VERSION = 'v0.12.0'
     process.env.ATOM_RESOURCE_PATH = temp.mkdirSync('atom-resource-path-')
 
   afterEach ->
