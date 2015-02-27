@@ -21,7 +21,7 @@
   },
   "scripts": {
     "prepublish": "grunt prepublish",
-    "install": "node ./script/download-node.js",
+    "install": "grunt prepublish && node ./script/download-node.js",
     "test": "grunt test"
   },
   "dependencies": {
