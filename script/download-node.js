@@ -50,7 +50,7 @@ var downloadTarballAndExtract = function(url, location, callback) {
 
 var copyNodeBinToLocation = function(callback, version, targetFilename, fromDirectory) {
   var arch = process.arch === 'ia32' ? 'x86' : process.arch;
-  var subDir = "node-" + version + "-" + process.platform + "-" + arch;
+  var subDir = "iojs-" + version + "-" + process.platform + "-" + arch;
   var fromPath = path.join(fromDirectory, subDir, 'bin', 'node');
   return mv(fromPath, targetFilename, function(err) {
     if (err) {
