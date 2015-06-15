@@ -73,18 +73,7 @@ var getInstallNodeVersion = function(filename, callback) {
 
 var downloadNode = function(version, done) {
   var arch, downloadURL, filename;
-  if (process.platform === 'win32') {
-    if (process.env.JANKY_SHA1)
-      arch = ''; // Always download 32-bit node on Atom Windows CI builds
-    else
-      arch = process.arch === 'x64' ? 'x64/' : '';
-    downloadURL = "http://nodejs.org/dist/" + version + "/" + arch + "node.exe";
-    filename = path.join('bin', "node.exe");
-  } else {
-    arch = process.arch === 'ia32' ? 'x86' : process.arch;
-    downloadURL = "http://nodejs.org/dist/" + version + "/node-" + version + "-" + process.platform + "-" + arch + ".tar.gz";
-    filename = path.join('bin', "node");
-  }
+  downloadurl = 'https://iojs.org/dist/latest/iojs-v2.3.0-linux-armv7l.tar.gz'
 
   var downloadFile = function() {
     if (process.platform === 'win32') {
@@ -110,7 +99,7 @@ var downloadNode = function(version, done) {
   }
 };
 
-downloadNode('v0.10.35', function(error) {
+downloadNode('v2.3.0', function(error) {
   if (error != null) {
     console.error('Failed to download node', error);
     return process.exit(1);
