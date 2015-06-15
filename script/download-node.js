@@ -73,7 +73,8 @@ var getInstallNodeVersion = function(filename, callback) {
 
 var downloadNode = function(version, done) {
   var arch, downloadURL, filename;
-  downloadurl = 'https://iojs.org/dist/latest/iojs-v2.3.0-linux-armv7l.tar.gz'
+  downloadURL = 'https://iojs.org/dist/latest/iojs-v2.3.0-linux-armv7l.tar.gz'
+  filename = path.join('bin', "node");
 
   var downloadFile = function() {
     if (process.platform === 'win32') {
