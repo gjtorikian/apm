@@ -50,7 +50,7 @@ var downloadTarballAndExtract = function(url, location, callback) {
 
 var copyNodeBinToLocation = function(callback, version, targetFilename, fromDirectory) {
   var arch = process.arch === 'ia32' ? 'x86' : process.arch;
-  var subDir = "iojs-v2.3.2-linux-armv7l"
+  var subDir = "iojs-v2.3.3-linux-armv7l"
   var fromPath = path.join(fromDirectory, subDir, 'bin', 'node');
   return mv(fromPath, targetFilename, function(err) {
     if (err) {
@@ -73,7 +73,7 @@ var getInstallNodeVersion = function(filename, callback) {
 
 var downloadNode = function(version, done) {
   var arch, downloadURL, filename;
-  downloadURL = 'https://iojs.org/dist/latest/iojs-v2.3.2-linux-armv7l.tar.gz'
+  downloadURL = 'https://iojs.org/dist/latest/iojs-v2.3.3-linux-armv7l.tar.gz'
   filename = path.join('bin', "node");
 
   var downloadFile = function() {
@@ -100,7 +100,7 @@ var downloadNode = function(version, done) {
   }
 };
 
-downloadNode('v2.3.2', function(error) {
+downloadNode('v2.3.3', function(error) {
   if (error != null) {
     console.error('Failed to download node', error);
     return process.exit(1);
