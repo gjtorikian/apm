@@ -50,7 +50,7 @@ var downloadTarballAndExtract = function(url, location, callback) {
 
 var copyNodeBinToLocation = function(callback, version, targetFilename, fromDirectory) {
   var arch = process.arch === 'ia32' ? 'x86' : process.arch;
-  var subDir = "iojs-v2.3.3-linux-armv7l"
+  var subDir = "iojs-v3.3.0-linux-armv7l"
   var fromPath = path.join(fromDirectory, subDir, 'bin', 'node');
   return mv(fromPath, targetFilename, function(err) {
     if (err) {
